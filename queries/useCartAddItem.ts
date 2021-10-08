@@ -18,7 +18,9 @@ const fetchCartAddItem = async (
   }
 };
 
-export const useCartAddItem = (productId: string, quantity: number) =>
+const useCartAddItem = (productId: string, quantity: number) =>
   useQuery(['addItemToCart', productId, quantity], () =>
     fetchCartAddItem(productId, quantity)
   );
+
+export { fetchCartAddItem, useCartAddItem };

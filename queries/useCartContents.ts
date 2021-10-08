@@ -11,5 +11,7 @@ const fetchCartContents = async () => {
   }
 };
 
-export const useCartContents = () =>
+const useCartContents = () =>
   useQuery<LineItem[], Error>(['cartContents', fetchCartContents]);
+
+export { fetchCartContents, useCartContents };

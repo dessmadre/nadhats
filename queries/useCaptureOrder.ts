@@ -16,7 +16,9 @@ const fetchCaptureOrder = async (
   }
 };
 
-export const useCaptureOrder = (checkoutToken: string, data: CheckoutCapture) =>
+const useCaptureOrder = (checkoutToken: string, data: CheckoutCapture) =>
   useQuery(['captureOrder', checkoutToken, data], () =>
     fetchCaptureOrder(checkoutToken, data)
   );
+
+export { fetchCaptureOrder, useCaptureOrder };

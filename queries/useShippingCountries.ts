@@ -17,7 +17,9 @@ const fetchShippingCountries = async (
   }
 };
 
-export const useShippingCountries = (checkoutToken: string) =>
+const useShippingCountries = (checkoutToken: string) =>
   useQuery(['fetchShippingCountries', checkoutToken], () =>
     fetchShippingCountries(checkoutToken)
   );
+
+export { fetchShippingCountries, useShippingCountries };

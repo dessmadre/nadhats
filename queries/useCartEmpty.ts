@@ -11,5 +11,7 @@ const fetchCartEmpty = async (): Promise<EmptyResponse> => {
   }
 };
 
-export const useCartEmpty = () =>
+const useCartEmpty = () =>
   useQuery<EmptyResponse, Error>(['emptyCart'], fetchCartEmpty);
+
+export { fetchCartEmpty, useCartEmpty };

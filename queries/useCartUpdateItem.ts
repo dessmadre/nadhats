@@ -21,8 +21,10 @@ const fetchCartUpdateItem = async (
   }
 };
 
-export const useCartUpdateItem = (productId: string, data: UpdateItem) =>
+const useCartUpdateItem = (productId: string, data: UpdateItem) =>
   useQuery<AddUpdateResponse, Error>(
     ['updateItemInCart', productId, data],
     () => fetchCartUpdateItem(productId, data)
   );
+
+export { fetchCartUpdateItem, useCartUpdateItem };

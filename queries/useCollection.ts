@@ -15,7 +15,9 @@ const fetchCollection = async (collectionId: string): Promise<Category> => {
   }
 };
 
-export const useCollection = (collectionId: string) =>
+const useCollection = (collectionId: string) =>
   useQuery<Category, Error>(['collection', collectionId], () =>
     fetchCollection(collectionId)
   );
+
+export { fetchCollection, useCollection };

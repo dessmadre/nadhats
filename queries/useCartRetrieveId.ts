@@ -10,5 +10,7 @@ const fetchCartRetrieveId = async (): Promise<string> => {
   }
 };
 
-export const useCartRetrieveId = () =>
+const useCartRetrieveId = () =>
   useQuery(['retrieveCartId'], fetchCartRetrieveId);
+
+export { fetchCartRetrieveId, useCartRetrieveId };

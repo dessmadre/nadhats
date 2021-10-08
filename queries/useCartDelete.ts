@@ -11,5 +11,7 @@ const fetchCartDelete = async (): Promise<DeleteResponse> => {
   }
 };
 
-export const useCartDelete = () =>
+const useCartDelete = () =>
   useQuery<DeleteResponse, Error>(['deleteCart'], fetchCartDelete);
+
+export { fetchCartDelete, useCartDelete };

@@ -20,7 +20,7 @@ const fetchShippingOptions = async (
   }
 };
 
-export const useGetShippingOptions = (
+const useGetShippingOptions = (
   checkoutToken: string,
   country: string,
   regionState: string = null
@@ -28,3 +28,5 @@ export const useGetShippingOptions = (
   useQuery(['getShippingOptions', checkoutToken, country, regionState], () =>
     fetchShippingOptions(checkoutToken, country, regionState)
   );
+
+export { fetchShippingOptions, useGetShippingOptions };

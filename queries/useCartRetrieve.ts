@@ -11,5 +11,7 @@ const fetchCartRetrieve = async (): Promise<Cart> => {
   }
 };
 
-export const useCartRetrieve = () =>
+const useCartRetrieve = () =>
   useQuery<Cart, Error>(['retrieveCart'], fetchCartRetrieve);
+
+export { fetchCartRetrieve, useCartRetrieve };

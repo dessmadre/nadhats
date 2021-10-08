@@ -11,4 +11,6 @@ const fetchCartRefresh = async (): Promise<Cart> => {
   }
 };
 
-export const useCartRefresh = () => useQuery(['refreshCart'], fetchCartRefresh);
+const useCartRefresh = () => useQuery(['refreshCart'], fetchCartRefresh);
+
+export { fetchCartRefresh, useCartRefresh };

@@ -14,7 +14,9 @@ const fetchCheckoutGenerate = async (
   return checkout;
 };
 
-export const useCheckoutGenerate = (cartId: string) =>
+const useCheckoutGenerate = (cartId: string) =>
   useQuery<CheckoutToken, Error>(['generateCheckoutToken'], () =>
     fetchCheckoutGenerate(cartId)
   );
+
+export { fetchCheckoutGenerate, useCheckoutGenerate };

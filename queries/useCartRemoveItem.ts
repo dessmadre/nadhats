@@ -13,7 +13,9 @@ const fetchCartRemoveItem = async (
   }
 };
 
-export const useCartRemoveItem = (productId: string) =>
+const useCartRemoveItem = (productId: string) =>
   useQuery<RemoveResponse, Error>(['removeCartItem', productId], () =>
     fetchCartRemoveItem(productId)
   );
+
+export { fetchCartRemoveItem, useCartRemoveItem };

@@ -18,11 +18,10 @@ const fetchShippingSubdivisions = async (
   }
 };
 
-export const useShippingSubdivisions = (
-  checkoutToken: string,
-  countryCode: string
-) =>
+const useShippingSubdivisions = (checkoutToken: string, countryCode: string) =>
   useQuery<LocaleListSubdivisionsResponse, Error>(
     ['fetchShippingSubdivisions', checkoutToken, countryCode],
     () => fetchShippingSubdivisions(checkoutToken, countryCode)
   );
+
+export { fetchShippingSubdivisions, useShippingSubdivisions };
