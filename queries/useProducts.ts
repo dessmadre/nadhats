@@ -12,5 +12,7 @@ const fetchProducts = async (): Promise<ProductCollection> => {
   }
 };
 
-export const useProducts = () =>
+const useProducts = () =>
   useQuery<ProductCollection, Error>(['products'], fetchProducts);
+
+export { fetchProducts, useProducts };

@@ -14,7 +14,9 @@ const fetchProduct = async (productId: string): Promise<Product> => {
   }
 };
 
-export const useProduct = (productId: string) =>
+const useProduct = (productId: string) =>
   useQuery<Product, Error>(['productById', productId], () =>
     fetchProduct(productId)
   );
+
+export { useProduct, fetchProduct };

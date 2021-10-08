@@ -4,7 +4,7 @@ export { useCollections } from './useCollections';
 
 // Product exports
 export { useProduct } from './useProduct';
-export { useProducts } from './useProducts';
+export * from './useProducts';
 
 // Cart exports
 export { useCartAddItem } from './useCartAddItem';
