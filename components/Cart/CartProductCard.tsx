@@ -16,7 +16,7 @@ const CartProductCard: React.FC<ICartProps> = ({ i }) => {
   };
 
   return (
-    <figure className='flex cart-product'>
+    <figure className='flex cart-product hover:shadow-lg'>
       <Image
         src={i.media.source}
         alt={i.name}

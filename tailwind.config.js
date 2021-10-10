@@ -5,9 +5,11 @@ module.exports = {
     extend: {
       spacing: {
         150: '9.375rem',
+        200: '12.5rem',
       },
       height: {
         banner: 'calc(100vh - 25vh)',
+        skeletonStore: '22.8125rem',
       },
       minWidth: {
         150: '9.375rem',
