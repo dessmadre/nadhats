@@ -2,6 +2,7 @@ import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query';
 
 import { fetchProducts, useProducts } from '../queries';
+import Header from '../components/Header';
 
 export default function Home() {
   const { data: products, isLoading: porductsIsLoading } = useProducts();
@@ -10,7 +11,11 @@ export default function Home() {
     return <section>Loading...</section>;
   }
 
-  return <main>{JSON.stringify(products, null, 2)}</main>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 // example for server side rendering using react-query

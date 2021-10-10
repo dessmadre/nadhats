@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+import Navigation from '../components/Navigation';
+
 import '../styles/globals.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
@@ -21,6 +23,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
+        <Navigation />
         <Component {...pageProps} />
         <ReactQueryDevtools initialIsOpen={false} />
       </Hydrate>

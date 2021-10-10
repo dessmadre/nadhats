@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+  margin-right: 6.25rem;
+}
+
+.nav-link:last-child {
+  margin-right: 0;
+}
+
+.product-card {
+  margin-bottom: 3.125rem;
+}
+
+.product-details {
+  padding: 1rem 2rem;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.product-button {
+  padding: 0.5rem;
+}
+
+.product-button:hover {
+  filter: brightness(0.6);
+}
+
+.store {
+  grid-gap: 3.125rem;
+}
+
+.logo {
+  fill: none;
+  stroke: '#00000';
+  stroke-miterlimit: 10;
+}
+
+.cart-product {
+  margin-bottom: 3.125rem;
+}
+
+.cart-product:last-child {
+  margin-bottom: 0;
+}
+
+.cart-product-details {
+  margin-left: 3.125rem;
+}
+
+.cart-product-details h3 {
+  margin-bottom: 0.78125rem;
+}
+
+.cart-product-acitions {
+  margin-top: 1.5625rem;
+}
