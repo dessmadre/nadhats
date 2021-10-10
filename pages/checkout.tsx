@@ -1,3 +1,5 @@
-export default function Checkout() {
+const Checkout: React.FC = () => {
   return <main>This is the checkout page</main>;
-}
+};
+
+export default Checkout;

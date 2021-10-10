@@ -1,5 +1,5 @@
 import { motion, Variants } from 'framer-motion';
-export default function Logo() {
+const Logo: React.FC = () => {
   const svgVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -105,4 +105,6 @@ export default function Logo() {
       />
     </svg>
   );
-}
+};
+
+export default Logo;

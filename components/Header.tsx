@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Header() {
+const Header: React.FC = () => {
   return (
     <header className='relative w-screen h-banner'>
       <Image
@@ -11,4 +11,5 @@ export default function Header() {
       ></Image>
     </header>
   );
-}
+};
+export default Header;

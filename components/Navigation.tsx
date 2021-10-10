@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 
-export default function Navigation() {
+const Navigation: React.FC = () => {
   interface INavLinks {
     label: string;
     target: string;
@@ -32,4 +32,6 @@ export default function Navigation() {
       </ul>
     </nav>
   );
-}
+};
+
+export default Navigation;

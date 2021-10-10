@@ -1,12 +1,13 @@
 import { LineItem } from '@chec/commerce.js/types/line-item';
 import Image from 'next/image';
+
 import { fetchCartRemoveItem, useCartRetrieve } from '../../queries';
 
 interface ICartProps {
   i: LineItem;
 }
 
-export default function CartProductCard({ i }: ICartProps) {
+const CartProductCard: React.FC<ICartProps> = ({ i }) => {
   const { refetch } = useCartRetrieve();
 
   const handleRemoveItem = async (itemId: string) => {
@@ -35,4 +36,6 @@ export default function CartProductCard({ i }: ICartProps) {
       </div>
     </figure>
   );
-}
+};
+
+export default CartProductCard;

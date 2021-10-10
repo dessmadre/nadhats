@@ -5,7 +5,7 @@ import { LineItem } from '@chec/commerce.js/types/line-item';
 import CartProductCard from '../components/Cart/CartProductCard';
 import { useEffect } from 'react';
 
-export default function Cart() {
+const Cart: React.FC = () => {
   const { data, isLoading, isFetching, refetch } = useCartRetrieve();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function Cart() {
       </section>
     </main>
   );
-}
+};
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
@@ -74,3 +74,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+export default Cart;

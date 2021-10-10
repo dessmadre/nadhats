@@ -7,7 +7,7 @@ import {
   fetchCartAddItem,
 } from '../queries';
 
-export default function Store() {
+const Store: React.FC = () => {
   const { data: productsData, isLoading: productsLoading } = useProducts();
   const { refetch } = useCartRetrieve();
 
@@ -55,7 +55,7 @@ export default function Store() {
       })}
     </main>
   );
-}
+};
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
@@ -67,3 +67,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+export default Store;

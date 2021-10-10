@@ -4,7 +4,7 @@ import { dehydrate } from 'react-query';
 import { fetchProducts, useProducts } from '../queries';
 import Header from '../components/Header';
 
-export default function Home() {
+const Home = () => {
   const { data: products, isLoading: porductsIsLoading } = useProducts();
 
   if (porductsIsLoading) {
@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
     </>
   );
-}
+};
 
 // example for server side rendering using react-query
 export async function getStaticProps() {
@@ -29,3 +29,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+export default Home;
