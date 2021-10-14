@@ -1,19 +1,22 @@
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query';
 
-import { fetchProducts, useProducts } from '../queries';
-import Header from '../components/Header';
+import {
+  fetchCollectionSlug,
+  fetchProductSlug,
+  useCollectionSlug,
+  useProductSlug,
+} from '../queries';
+import Header from '../components/Home/Header';
+import Featured from '../components/Home/Featured';
+import { slug } from '../lib/featuredSlug';
 
 const Home = () => {
-  const { data: products, isLoading: porductsIsLoading } = useProducts();
-
-  if (porductsIsLoading) {
-    return <section>Loading...</section>;
-  }
-
   return (
     <>
       <Header />
+
+      <Featured />
     </>
   );
 };
@@ -21,7 +24,12 @@ const Home = () => {
 // example for server side rendering using react-query
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['products'], fetchProducts);
+  await queryClient.prefetchQuery(['retrieveCollectionSlug', slug], () =>
+    fetchCollectionSlug(slug)
+  );
+  await queryClient.prefetchQuery(['productsByCollectionSlug', slug], () =>
+    fetchProductSlug(slug)
+  );
 
   return {
     props: {

@@ -3,10 +3,13 @@ import { useQuery } from 'react-query';
 import { commerceJsClient } from '../lib/commercejsClient';
 import { Category } from '@chec/commerce.js/types/category';
 
-const fetchCollection = async (collectionId: string): Promise<Category> => {
+const fetchCollectionSlug = async (slug: string): Promise<Category> => {
   try {
     const collection: Category = await commerceJsClient.categories.retrieve(
-      collectionId
+      slug,
+      {
+        type: 'slug',
+      }
     );
     return collection;
   } catch (err) {
@@ -14,9 +17,9 @@ const fetchCollection = async (collectionId: string): Promise<Category> => {
   }
 };
 
-const useCollection = (collectionId: string) =>
-  useQuery<Category, Error>(['collection', collectionId], () =>
-    fetchCollection(collectionId)
+const useCollectionSlug = (slug: string) =>
+  useQuery<Category, Error>(['retrieveCollectionSlug', slug], () =>
+    fetchCollectionSlug(slug)
   );
 
-export { fetchCollection, useCollection };
+export { fetchCollectionSlug, useCollectionSlug };

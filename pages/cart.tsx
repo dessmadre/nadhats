@@ -1,19 +1,13 @@
 import { dehydrate, QueryClient } from 'react-query';
 import Link from 'next/link';
+
 import { fetchCartRetrieve, useCartRetrieve } from '../queries';
 import { LineItem } from '@chec/commerce.js/types/line-item';
 import CartProductCard from '../components/Cart/CartProductCard';
-import { useEffect } from 'react';
 import CartSkeletonLoader from '../components/Cart/CartSkeletonLoader';
 
 const Cart: React.FC = () => {
-  const { data, isLoading, isFetching, refetch } = useCartRetrieve();
-
-  useEffect(() => {
-    refetch();
-  }, [refetch]);
-
-  console.log(data);
+  const { data, isLoading, isFetching } = useCartRetrieve();
 
   if (isLoading || isFetching) {
     return <CartSkeletonLoader />;
@@ -59,9 +53,11 @@ const Cart: React.FC = () => {
           <p className='text-3xl font-thin'>${data.subtotal.raw + 5}.00</p>
         </aside>
         <aside className='w-full'>
-          <button className='uppercase w-full mt-3 p-3 bg-gray-800 hover:bg-black text-white text-center'>
-            Checkout
-          </button>
+          <Link href={'/checkout'} passHref>
+            <button className='uppercase w-full mt-3 p-3 bg-gray-800 hover:bg-black text-white text-center'>
+              Checkout
+            </button>
+          </Link>
         </aside>
       </section>
     </main>
@@ -70,7 +66,6 @@ const Cart: React.FC = () => {
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['retrieveCart'], fetchCartRetrieve);
 
   return {
     props: {

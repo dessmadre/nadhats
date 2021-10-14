@@ -1,16 +1,10 @@
 import { dehydrate, QueryClient } from 'react-query';
-import {
-  fetchProducts,
-  useProducts,
-  useCartRetrieve,
-  fetchCartRetrieve,
-} from '../queries';
+import { fetchProducts, useProducts } from '../queries';
 import ProductCard from '../components/Store/ProductCard';
 import SkeletonStore from '../components/Store/SkeletonStore';
 
 const Store: React.FC = () => {
   const { data: productsData, isLoading: productsLoading } = useProducts();
-  const { data: cartRetireve } = useCartRetrieve();
 
   const products = productsData.data;
 
@@ -18,7 +12,7 @@ const Store: React.FC = () => {
     return <SkeletonStore />;
   }
   return (
-    <main className='px-150 grid grid-cols-3 store'>
+    <main className='px-25 lg:px-150 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-50 justify-items-center'>
       {products.map((p) => {
         return <ProductCard key={p.id} product={p} />;
       })}
@@ -29,7 +23,6 @@ const Store: React.FC = () => {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['products'], fetchProducts);
-  await queryClient.prefetchQuery(['retrieveCart'], fetchCartRetrieve);
 
   return {
     props: {

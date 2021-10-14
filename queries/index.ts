@@ -1,10 +1,12 @@
 // Collection Exports
 export * from './useCollection';
 export * from './useCollections';
+export * from './useCollectionSlug';
 
 // Product exports
 export * from './useProduct';
 export * from './useProducts';
+export * from './useProductsSlug';
 
 // Cart exports
 export * from './useCartAddItem';
